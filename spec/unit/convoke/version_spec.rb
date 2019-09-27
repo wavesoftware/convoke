@@ -4,7 +4,7 @@ require 'spec_helper'
 require 'matchers/semver'
 
 RSpec.describe Convoke do
-  describe '.VERSION' do
+  describe 'VERSION' do
     let(:value) { Convoke::VERSION }
     # Convert to Semantic Puppet style version from Ruby accepted style
     subject { value.gsub('.pre', '-pre') }
