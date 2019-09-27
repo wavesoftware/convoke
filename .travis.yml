@@ -1,0 +1,23 @@
+dist: xenial
+sudo: false
+language: ruby
+cache: bundler
+rvm:
+  - '2.6'
+  - '2.5'
+  - '2.3'
+  - '2.1'
+script: bundle exec rake check
+jobs:
+  include:
+    - stage: deploy
+      if: tag IS present
+      rvm: '2.6'
+      script: echo 'Deploying to rubygems.org...'
+      deploy:
+        on:
+          all_branches: true
+        provider: rubygems
+        gem: convoke
+        api_key:
+          secure: <<SECURED_API_KEY>>

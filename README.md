@@ -2,4 +2,4 @@
 
 # convoke
 
-A Puppet modules rapid dependency manager
+A rapid Puppet dependency manager
